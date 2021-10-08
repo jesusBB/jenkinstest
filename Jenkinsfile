@@ -1,7 +1,7 @@
 pipeline {
   agent any
   parameters {
-      choice(name: 'CHOICES', choices: 'one two three', description: 'testing choices param')
+      choice(name: 'CHOICES', choices: ['one','two', 'three'], description: 'testing choices param')
   }
   tools{
       maven 'Maven'     
@@ -15,7 +15,7 @@ pipeline {
           steps{
               echo 'Building the application ... '
               echo "Bbuilding version ${NEW_VERSION}"
-              echo "Choice is ${CHOICE}"
+              echo "Choice is ${params.CHOICE}"
           }
       }
       stage("test"){
