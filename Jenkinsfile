@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  tools{
+      maven 'Maven'     
+  }
+
   environment {
       NEW_VERSION = '1.3.0'
   }
@@ -8,11 +12,13 @@ pipeline {
           steps{
               echo 'Building the application ... '
               echo "Bbuilding version ${NEW_VERSION}"
+              
           }
       }
       stage("test"){
           steps{
               echo 'Testing the application ... '
+              echo 'Show maven version: ' sh "mvn -version"
           }
       }
       stage("deploy"){
