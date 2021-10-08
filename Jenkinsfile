@@ -18,10 +18,10 @@ pipeline {
           }
       }
   }
-}
-post{
+  post{
     always {
      	echo 'stage or pipeline is finished'   
     }
      
+}
 }
