@@ -19,7 +19,7 @@ pipeline {
           steps{
               echo 'Testing the application ... '
               echo 'Show maven version: ' 
-              //sh "maven -version"
+              bat "maven -version"
           }
       }
       stage("deploy"){
