@@ -16,12 +16,16 @@ pipeline {
           steps{
               echo 'Deploying the application ... '
           }
+          post{
+             always {
+     	         echo 'stage deploy is finished'   
+             }
+          }
       }
   }
   post{
     always {
      	echo 'stage or pipeline is finished'   
     }
-     
 }
 }
