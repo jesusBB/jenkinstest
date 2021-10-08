@@ -5,7 +5,7 @@ pipeline {
       stage("build"){
           steps{
               echo 'Building the application ... '
-              echo $BRANCH_NAME
+              echo BRANCH_NAME
           }
       }
       stage("test"){
