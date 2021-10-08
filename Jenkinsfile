@@ -15,7 +15,7 @@ pipeline {
           steps{
               echo 'Building the application ... '
               echo "Bbuilding version ${NEW_VERSION}"
-              echo "Choice is ${params.CHOICE}"
+              echo "Choice is ${params.CHOICES}"
           }
       }
       stage("test"){
