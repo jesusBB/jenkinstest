@@ -1,7 +1,7 @@
 pipeline {
   agent any
   parameters {
-      choice(name: 'CHOICES', choices: ['1', '2', '3'], description: 'testing choices param')
+      choice(name: 'CHOICES', choices: ['4', '5', '6'], description: 'testing choices param')
   }
   tools{
       maven 'Maven'     
