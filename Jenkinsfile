@@ -1,3 +1,5 @@
+def gv
+
 pipeline {
   agent any
   parameters {
@@ -11,23 +13,31 @@ pipeline {
       NEW_VERSION = '1.3.0'
   }
   stages {
+      stage("init"){
+          steps{
+              script {
+                  gv = load "script.groovy"
+              }
+
+          }
+      }
       stage("build"){
           steps{
-              echo 'Building the application ... '
-              echo "Bbuilding version ${NEW_VERSION}"
-              echo "Choice is ${params.CHOICES}"
+              script {
+                  gv.buildApp()
+              }
           }
       }
       stage("test"){
           steps{
-              echo 'Testing the application ... '
-              echo 'Show maven version: ' 
-              bat "mvn -version"
+              script {
+                  gv.testApp()
+              }
           }
       }
       stage("deploy"){
           steps{
-              echo 'Deploying the application ... '
+		      gv.deployApp()	
           }
           post{
              always {
