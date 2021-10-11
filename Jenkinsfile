@@ -44,6 +44,12 @@ pipeline {
           post{
              always {
      	         echo 'stage deploy is finished'   
+                 cleanWs(cleanWhenNotBuilt: false,
+                     deleteDirs: true,
+                     disableDeferredWipeout: true,
+                     notFailBuild: true,
+                     patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+                               [pattern: '.propsfile', type: 'EXCLUDE']])
              }
           }
       }
