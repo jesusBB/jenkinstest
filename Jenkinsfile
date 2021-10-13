@@ -32,10 +32,13 @@ pipeline {
           steps{
               withMaven(
                   maven: 'Maven'
-              )
-              script {
+              ){
                   gv.testApp()
               }
+
+              //script {
+                //  gv.testApp()
+              //}
           }
       }
       stage("deploy"){
