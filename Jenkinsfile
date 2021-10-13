@@ -28,11 +28,11 @@ pipeline {
           }
       }
       stage("test"){
-          withMaven(
-              maven: 'Maven'
-          )
 
           steps{
+              withMaven(
+                  maven: 'Maven'
+              )
               script {
                   gv.testApp()
               }
