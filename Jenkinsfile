@@ -5,9 +5,9 @@ pipeline {
   parameters {
       choice(name: 'CHOICES', choices: ['1', '2', '3'], description: 'testing choices param')
   }
-  tools{
-      maven 'Maven'     
-  }
+  //tools{
+  //    maven 'Maven'     
+  //}
 
   environment {
       NEW_VERSION = '1.3.0'
@@ -16,9 +16,8 @@ pipeline {
       stage("init"){
           steps{
               script {
-                  gv = load "groovyScripts/script.groovy"
+                      gv = load "groovyScripts/script.groovy"
               }
-
           }
       }
       stage("build"){
@@ -31,7 +30,9 @@ pipeline {
       stage("test"){
           steps{
               script {
-                  gv.testApp()
+                  withMaven{
+                      gv.testApp()
+                  }
               }
           }
       }
