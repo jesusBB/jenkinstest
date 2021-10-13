@@ -7,7 +7,7 @@ def buildApp() {
 def testApp() {
     echo 'Testing the application ... '
     echo 'Show maven version: ' 
-    bat "mvn -version"
+    sh "mvn -version"
 }
 
 def deployApp() {
