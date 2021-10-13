@@ -31,7 +31,7 @@ pipeline {
 
           steps{
               withMaven(
-                  maven: 'Maven'
+                  maven: 'Maven asdf'
               ){
                   script {
                       gv.testApp()
