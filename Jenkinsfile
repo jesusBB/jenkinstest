@@ -33,7 +33,9 @@ pipeline {
               withMaven(
                   maven: 'Maven'
               ){
-                  gv.testApp()
+                  script {
+                      gv.testApp()
+                  }
               }
 
               //script {
